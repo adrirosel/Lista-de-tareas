@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tareas</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <header class="header">
+        <h1>GESTOR DE TAREAS</h1>
+        <h2>Lista de tareas <strong>interactiva</strong></h2>
+    </header>
+    <main class="principal-container">
+        <nav>
+            <div class="instructions">
+                <h3 class="instructions-title">Instrucciones:</h3>
+            <ul>
+                <li>Introduzca el objetivo/habito a desear</li>
+                <li>Seleccione la prioridad y categoria que tendra dicho objetivo</li>
+                <li>Introduzca la fecha de inicio y de finalizacion</li>
+                <li>Presione el boton "Enviar" para añadir la tarea a la lista</li>
+                <li>¡Manos a la obra!<svg xmlns="http://www.w3.org/2000/svg" fill="yellow" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="list-icon">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+                                    </svg>
+                </li>
+            </ul>
+            </div> 
+        </nav>
+        <article class="send-container">
+            <h3>Agregacion de tareas</h3>
+            <section>
+                <p>Tarea:</p>
+                <input id="input"type="text" placeholder="Introduzca una tarea">
+                <p>Prioridad:</p>
+                <select id="priority" name="prioridad-tarea" required>
+                    <option value="low" selected>Baja</option>
+                    <option value="mid" selected>Media</option>
+                    <option value="high" selected>Urgente</option>
+                </select>
+                <p>Categoria:</p>
+                <select id="category" name="categoria-tarea" required>
+                    <option value="study" selected>Estudios / Formacion</option>
+                    <option value="job" selected>Empleo</option>
+                    <option value="health" selected>Salud y Deporte</option>
+                    <option value="proyect" selected>Proyectos</option>
+                    <option value="entertainment" selected>Ocio y Entretenimiento</option>
+                    <option value="personal" selected>Personal y Relaciones</option>
+                </select>
+                <p>Fecha de inicio</p>
+                <input id="start-date" type="date">
+                <p>Fecha fin</p>
+                <input id="finish-date" type="date">
+                <br><br>
+                <button id="send" class="send-task">Enviar</button>
+            </section>
+        </article>
+        <aside class="task-container">
+            <h2>Tareas pendientes</h2>
+            <ol>
+
+            </ol>
+        </aside>
+    </main>
+    
+    <footer>
+        <button class="dark-mode">Modo Claro/Oscuro</button>
+    </footer>
+</body>
+</html>
