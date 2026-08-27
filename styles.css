@@ -75,7 +75,7 @@ h1, h2, h3, p, li{
     padding: 1rem;
 }
 
-/* 2. COMPORTAMIENTO ESCRITORIO (Pantallas a partir de 768px) */
+
 @media (min-width: 768px) {
     .principal-container {
         display: grid;
@@ -130,7 +130,7 @@ h1, h2, h3, p, li{
 }
 .task-header{
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     gap: 1.5rem;
 }
@@ -149,4 +149,26 @@ h1, h2, h3, p, li{
 }
 #input, #priority, #category, #start-date, #finish-date {
     width: 50%;
+}
+
+@media (max-width: 768px) {
+    .task-item{
+        display:flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .task-details{
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 1rem;
+    }
+    .task-header{
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .task-actions{
+        width: 100%;
+        gap: 1rem;
+        justify-content: space-between;
+    }
 }
