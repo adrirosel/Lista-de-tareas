@@ -9,20 +9,24 @@ const selectCategory = document.getElementById("category")
 const startDate = document.getElementById("start-date")
 const endDate = document.getElementById("finish-date")
 const btnCompletar = document.getElementById("btn-complete")
-const btnEliminar = document.getElementById("btn-delete")
 
-btnEnviar.addEventListener("click", ()=>{
+/* btnEliminar.addEventListener("click", ()=>{
+    tarea.remove()
+}) */
+
+
+btnEnviar.addEventListener("click", (e)=>{
     if(inputTarea.value === "" || startDate.value === "" || startDate.value > endDate.value){
         alert("Datos incorrectos")
         return
     }
+    e.preventDefault();
     const tarea = document.createElement("li")
-    tarea.setAttribute("id", "task-item")
-    tarea.classList.add = "task-item"
+    tarea.classList.add("task-item");
 
-    /* tarea.textContent = inputTarea.value */
+    
     tarea.innerHTML = `<div class="task-header">
-                        <h4>${inputTarea.value}</h4>
+                        <h3>${inputTarea.value}</h3>
                         <span class="badge priority-high">${selectPriority.value}</span>
                     </div>
 
@@ -39,6 +43,10 @@ btnEnviar.addEventListener("click", ()=>{
                         <button class="btn-delete">Eliminar</button>
                     </div>`
 
+    const btnEliminar = tarea.querySelector(".btn-delete")
+    btnEliminar.addEventListener("click", () => {
+        tarea.remove()
+    })
     const lista = document.getElementById("list")
     lista.appendChild(tarea)
 
