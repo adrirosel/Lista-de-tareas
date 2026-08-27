@@ -146,8 +146,6 @@ h1, h2, h3, p, li{
 #send{
     width: fit-content;
     height: fit-content;
-    margin-left: 5%;
-    margin-bottom: 5%;
 }
 #input, #priority, #category, #start-date, #finish-date {
     width: 50%;
