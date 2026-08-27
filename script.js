@@ -8,7 +8,7 @@ const selectPriority = document.getElementById("priority")
 const selectCategory = document.getElementById("category")
 const startDate = document.getElementById("start-date")
 const endDate = document.getElementById("finish-date")
-const btnCompletar = document.getElementById("btn-complete")
+
 
 /* btnEliminar.addEventListener("click", ()=>{
     tarea.remove()
@@ -27,25 +27,32 @@ btnEnviar.addEventListener("click", (e)=>{
     
     tarea.innerHTML = `<div class="task-header">
                         <h3>${inputTarea.value}</h3>
-                        <span class="badge priority-high">${selectPriority.value}</span>
+                        <span class="badge priority-high"><strong>Prioridad:</strong>${selectPriority.value}</span>
                     </div>
 
                     
                     <div class="task-details">
-                        <p><strong>Categoría:</strong> ${selectCategory.value}</p>
-                        <p><strong>Inicio:</strong> ${startDate.value}</p>
-                        <p><strong>Fin:</strong> ${endDate.value}</p>
+                        <span><strong>Categoría:</strong> ${selectCategory.value}</span>
+                        <span><strong>Inicio:</strong> ${startDate.value}</span>
+                        <span><strong>Fin:</strong> ${endDate.value}</span>
                     </div>
 
                     
                     <div class="task-actions">
-                        <button class="btn-complete">Completar</button>
-                        <button class="btn-delete">Eliminar</button>
+                        <button class="btn-complete">✅</button>
+                        <button class="btn-delete">❌</button>
                     </div>`
 
     const btnEliminar = tarea.querySelector(".btn-delete")
     btnEliminar.addEventListener("click", () => {
         tarea.remove()
+    })
+    const btnCompletar = tarea.querySelector(".btn-complete")
+    btnCompletar.addEventListener("click", ()=>{
+        const contenedorCompletadas = document.querySelector(".completed-tasks")
+        contenedorCompletadas.appendChild(tarea) 
+        tarea.classList.add("task-completed")
+        btnCompletar.remove();
     })
     const lista = document.getElementById("list")
     lista.appendChild(tarea)
@@ -55,3 +62,4 @@ btnEnviar.addEventListener("click", (e)=>{
     endDate.value = "";
 
 })
+
