@@ -30,15 +30,16 @@
         <article class="send-container">
             <h3>Agregacion de tareas</h3>
             <section>
-                <p>Tarea:</p>
+                <label for="input">Tarea:</label>
                 <input id="input"type="text" placeholder="Introduzca una tarea">
-                <p>Prioridad:</p>
+                <label for="priority">Prioridad:</label>
                 <select id="priority" name="prioridad-tarea" required>
                     <option value="low" selected>Baja</option>
                     <option value="mid" selected>Media</option>
                     <option value="high" selected>Urgente</option>
                 </select>
-                <p>Categoria:</p>
+                <br>
+                <label for="category">Categoria:</label>
                 <select id="category" name="categoria-tarea" required>
                     <option value="study" selected>Estudios / Formacion</option>
                     <option value="job" selected>Empleo</option>
@@ -47,9 +48,11 @@
                     <option value="entertainment" selected>Ocio y Entretenimiento</option>
                     <option value="personal" selected>Personal y Relaciones</option>
                 </select>
-                <p>Fecha de inicio</p>
+                <br>
+                <label for="start-date">Fecha inicio:</label>
                 <input id="start-date" type="date">
-                <p>Fecha fin</p>
+                <br>
+                <label for="finish-date">Fecha fin:</label>
                 <input id="finish-date" type="date">
                 <br><br>
                 <button id="send" class="send-task">Enviar</button>
@@ -57,8 +60,27 @@
         </article>
         <aside class="task-container">
             <h2>Tareas pendientes</h2>
-            <ol>
+            <ol id="list">
+                <li class="task-item">
+                    <!-- Cabecera de la tarea: Título y Prioridad -->
+                    <div class="task-header">
+                        <h4>Repasar eventos del DOM en JavaScript</h4>
+                        <span class="badge priority-high">Urgente</span>
+                    </div>
 
+                    <!-- Detalles de la tarea -->
+                    <div class="task-details">
+                        <p><strong>Categoría:</strong> Estudios / Formación</p>
+                        <p><strong>Inicio:</strong> 27/08/2026</p>
+                        <p><strong>Fin:</strong> 14/09/2026</p>
+                    </div>
+
+                    <!-- Botones de acción -->
+                    <div class="task-actions">
+                        <button class="btn-complete">Completar</button>
+                        <button class="btn-delete">Eliminar</button>
+                    </div>
+                </li>
             </ol>
         </aside>
     </main>
@@ -66,5 +88,6 @@
     <footer>
         <button class="dark-mode">Modo Claro/Oscuro</button>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
