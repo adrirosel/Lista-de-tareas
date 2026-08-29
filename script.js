@@ -65,37 +65,29 @@ btnEnviar.addEventListener("click", (e)=>{
 
 function setTheme(theme){
     const html = document.documentElement
-    if(theme === "dark"){
-        html.classList.add("dark-mode")
-    }else{
-        html.classList.remove("dark-mode")
-    }
+        if(theme === "dark"){
+            html.classList.add("dark-mode")
+        }else{
+            html.classList.remove("dark-mode")
+        }
 }
-
-
+addButtonThemeListener()
 let currentTheme = getSavedTheme()
 setTheme(currentTheme)
-
-addButtonThemeListener();
 
 function addButtonThemeListener(){
     const btnToggler = document.querySelector(".button-theme-toggle")
     btnToggler.addEventListener("click", ()=>{
-       const newTheme = getTheme(currentTheme)
-       currentTheme = newTheme
-       setTheme(currentTheme)
-       saveTheme(currentTheme)
+        const newTheme = getTheme(currentTheme)
+        currentTheme = newTheme
+        setTheme(currentTheme)
+        saveTheme(currentTheme)
     })
 }
 
 function getTheme(theme){
     return theme === "dark" ? "light" : "dark"
 }
-
-/* const btnDark = document.querySelector(".dark-mode")
-btnDark.addEventListener("click", ()=>{
-    console.log("Hola")
-}) */
 
 function getSavedTheme(){
     return localStorage.getItem("theme")
