@@ -34,11 +34,11 @@ Actualmente, el proyecto se encuentra en su fase MVP (Producto Mínimo Viable). 
 *   **Flujo de Estados:** Lógica implementada para mover dinámicamente las tareas a la sección de "Tareas completadas" con su correspondiente cambio de estilo, así como la opción de eliminarlas definitivamente de la interfaz.
 *   **Interactividad del Modo Oscuro:** Boton que cambia la iluminacion de la interfaz en funcion de si el usuario quiere usar la aplicacion en modo claro u oscuro
 *   **Persistencia de Datos:** Integración con `localStorage` para evitar que las tareas se borren al recargar la página.
+*   **Buscador y Filtros:** Barra de búsqueda funcional para navegar entre las tareas acumuladas.
 
 ### ⏳ Pendiente de Implementación
 
 *   **Sistema de Gamificación y XP:** Implementación de las métricas y suma de puntos al completar tareas.
-*   **Buscador y Filtros:** Barra de búsqueda funcional para navegar entre las tareas acumuladas.
 *   **Desglose de Subtareas y Alertas Visuales:** Para fechas límite próximas.
 
 ---
