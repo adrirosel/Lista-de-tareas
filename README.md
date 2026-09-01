@@ -32,11 +32,11 @@ Actualmente, el proyecto se encuentra en su fase MVP (Producto Mínimo Viable). 
 *   **Validación de Entradas:** Sistema de seguridad integrado que bloquea la creación de tareas si existen campos vacíos o si la fecha de inicio es posterior a la de finalización.
 *   **Manipulación Dinámica del DOM:** Generación de elementos en tiempo real en la lista de "Tareas pendientes".
 *   **Flujo de Estados:** Lógica implementada para mover dinámicamente las tareas a la sección de "Tareas completadas" con su correspondiente cambio de estilo, así como la opción de eliminarlas definitivamente de la interfaz.
-*   **Interactividad del Modo Oscuro:** Boton que cambia la iluminacion de la interfaz en funcion de si el usuario quiere usar la aplicacion en modo claro u oscuro, 
-al recargar la pagina se mantiene la configuracion gracias al uso de `localStorage`
+*   **Interactividad del Modo Oscuro:** Boton que cambia la iluminacion de la interfaz en funcion de si el usuario quiere usar la aplicacion en modo claro u oscuro
+*   **Persistencia de Datos:** Integración con `localStorage` para evitar que las tareas se borren al recargar la página.
 
 ### ⏳ Pendiente de Implementación
-*   **Persistencia de Datos:** Integración con `localStorage` para evitar que las tareas se borren al recargar la página.
+
 *   **Sistema de Gamificación y XP:** Implementación de las métricas y suma de puntos al completar tareas.
 *   **Buscador y Filtros:** Barra de búsqueda funcional para navegar entre las tareas acumuladas.
 *   **Desglose de Subtareas y Alertas Visuales:** Para fechas límite próximas.
