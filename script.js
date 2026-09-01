@@ -9,7 +9,8 @@ const selectCategory = document.getElementById("category")
 const startDate = document.getElementById("start-date")
 const endDate = document.getElementById("finish-date")
 const contenedorCompletadas = document.querySelector(".completed-tasks")
-
+const buscadorTarea = document.getElementById("search-input")
+const lista = document.getElementById("list")
 
 let almacenTareas = JSON.parse(getSaveTask()) || []
 for(let i = 0; i<almacenTareas.length; i++){
@@ -41,8 +42,6 @@ btnEnviar.addEventListener("click", (e)=>{
 
     const tarea = createTask(datosTarea)
     
-    
-    const lista = document.getElementById("list")
     lista.appendChild(tarea)
 
     almacenTareas.push(datosTarea)
@@ -142,4 +141,18 @@ function createTask(datosTarea){
         btnCompletar.remove();
     }
     return tarea
-} 
+}
+
+buscadorTarea.addEventListener("input", (e)=>{
+    lista.innerHTML = ""
+    contenedorCompletadas.innerHTML = `<h2 class="completed-tasks-title">Tareas completadas</h2>`
+    let input = e.target.value.toLowerCase()
+    let tareasFiltradas = almacenTareas.filter((item) => item.nombre.toLowerCase().includes(input))
+    for(let i = 0; i<tareasFiltradas.length; i++){
+        if(tareasFiltradas[i].estado === "pendiente"){
+            lista.appendChild(createTask(tareasFiltradas[i]))
+        } else {
+            contenedorCompletadas.appendChild(createTask(tareasFiltradas[i]))
+        }
+    }
+})
