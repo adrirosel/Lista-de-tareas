@@ -8,12 +8,19 @@ const selectPriority = document.getElementById("priority")
 const selectCategory = document.getElementById("category")
 const startDate = document.getElementById("start-date")
 const endDate = document.getElementById("finish-date")
+const contenedorCompletadas = document.querySelector(".completed-tasks")
 
 
 let almacenTareas = JSON.parse(getSaveTask()) || []
 for(let i = 0; i<almacenTareas.length; i++){
     const lista = document.getElementById("list")
-    lista.appendChild(createTask(almacenTareas[i]))
+    /* lista.appendChild(createTask(almacenTareas[i])) */
+    if(almacenTareas[i].estado === "pendiente"){
+        lista.appendChild(createTask(almacenTareas[i]))
+    } else {
+        contenedorCompletadas.appendChild(createTask(almacenTareas[i]))
+
+    }
 }
 
 btnEnviar.addEventListener("click", (e)=>{
@@ -28,7 +35,8 @@ btnEnviar.addEventListener("click", (e)=>{
         prioridad: selectPriority.value,
         categoria: selectCategory.value,
         inicio: startDate.value,
-        fin: endDate.value
+        fin: endDate.value, 
+        estado: "pendiente"
     };
 
     const tarea = createTask(datosTarea)
@@ -120,11 +128,18 @@ function createTask(datosTarea){
     })
     const btnCompletar = tarea.querySelector(".btn-complete")
     btnCompletar.addEventListener("click", ()=>{
-        const contenedorCompletadas = document.querySelector(".completed-tasks")
+
         contenedorCompletadas.appendChild(tarea) 
         tarea.classList.add("task-completed")
         btnCompletar.remove();
-    })
 
+        let tareaEncontrada = almacenTareas.find((item) => item.nombre === datosTarea.nombre)
+        tareaEncontrada.estado = "completada"
+        setSaveTask(JSON.stringify(almacenTareas))
+    })
+    if(datosTarea.estado === "completada"){
+        tarea.classList.add("task-completed")
+        btnCompletar.remove();
+    }
     return tarea
 } 
