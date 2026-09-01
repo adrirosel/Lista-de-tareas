@@ -115,6 +115,8 @@ function createTask(datosTarea){
     const btnEliminar = tarea.querySelector(".btn-delete")
     btnEliminar.addEventListener("click", () => {
         tarea.remove()
+        almacenTareas = almacenTareas.filter((item) => item.nombre !== datosTarea.nombre)
+        setSaveTask(JSON.stringify(almacenTareas))
     })
     const btnCompletar = tarea.querySelector(".btn-complete")
     btnCompletar.addEventListener("click", ()=>{
