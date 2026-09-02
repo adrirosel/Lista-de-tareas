@@ -32,6 +32,7 @@ btnEnviar.addEventListener("click", (e)=>{
     e.preventDefault();
 
      const datosTarea = {
+        id: Date.now(),
         nombre: inputTarea.value,
         prioridad: selectPriority.value,
         categoria: selectCategory.value,
@@ -122,7 +123,7 @@ function createTask(datosTarea){
     const btnEliminar = tarea.querySelector(".btn-delete")
     btnEliminar.addEventListener("click", () => {
         tarea.remove()
-        almacenTareas = almacenTareas.filter((item) => item.nombre !== datosTarea.nombre)
+        almacenTareas = almacenTareas.filter((item) => item.id !== datosTarea.id)
         setSaveTask(JSON.stringify(almacenTareas))
     })
     const btnCompletar = tarea.querySelector(".btn-complete")
@@ -132,7 +133,7 @@ function createTask(datosTarea){
         tarea.classList.add("task-completed")
         btnCompletar.remove();
 
-        let tareaEncontrada = almacenTareas.find((item) => item.nombre === datosTarea.nombre)
+        let tareaEncontrada = almacenTareas.find((item) => item.id === datosTarea.id)
         tareaEncontrada.estado = "completada"
         setSaveTask(JSON.stringify(almacenTareas))
     })
