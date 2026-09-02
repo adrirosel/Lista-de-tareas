@@ -12,10 +12,11 @@
     --color-texto: #F2F3F4;
     --color-fondo-tarjetas: #1a3308;
 }
-
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 body{
     background-color: var(--color-fondo);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     transition: background 300ms ease, color 300ms ease;
 }
 
@@ -272,4 +273,14 @@ h1, h2, h3, p, li{
 }
 .completed-tasks-title{
     text-align: center;
+}
+.subtitle-strike {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem; 
+}
+
+.subtitle-strike h2, .subtitle-strike p {
+    margin: 0; 
 }

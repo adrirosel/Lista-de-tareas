@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", ()=>{
     console.log("El DOM ha cargado perfectamente")
+    let rachaGuardada = localStorage.getItem("racha") || 0;
+    racha.textContent = `Racha 🔥: ${rachaGuardada}`;
 })
 
 const inputTarea = document.getElementById("input")
@@ -11,6 +13,7 @@ const endDate = document.getElementById("finish-date")
 const contenedorCompletadas = document.querySelector(".completed-tasks")
 const buscadorTarea = document.getElementById("search-input")
 const lista = document.getElementById("list")
+const subtitulo = document.querySelector(".subtitle-strike")
 
 let almacenTareas = JSON.parse(getSaveTask()) || []
 for(let i = 0; i<almacenTareas.length; i++){
@@ -23,6 +26,10 @@ for(let i = 0; i<almacenTareas.length; i++){
 
     }
 }
+
+const racha = document.createElement("p")
+racha.classList.add("strike")
+subtitulo.appendChild(racha)
 
 btnEnviar.addEventListener("click", (e)=>{
     if(inputTarea.value === "" || startDate.value === "" || startDate.value > endDate.value){
@@ -50,7 +57,8 @@ btnEnviar.addEventListener("click", (e)=>{
     const almacenTareasJSON = JSON.stringify(almacenTareas)
 
     setSaveTask(almacenTareasJSON)
-
+    let rachaActualizada = actualizarRacha();
+    racha.textContent = `Racha 🔥: ${rachaActualizada}`;
     
 
     inputTarea.value = "";
@@ -136,6 +144,8 @@ function createTask(datosTarea){
         let tareaEncontrada = almacenTareas.find((item) => item.id === datosTarea.id)
         tareaEncontrada.estado = "completada"
         setSaveTask(JSON.stringify(almacenTareas))
+        let rachaActualizada = actualizarRacha();
+        racha.textContent = `Racha 🔥: ${rachaActualizada}`;
     })
     if(datosTarea.estado === "completada"){
         tarea.classList.add("task-completed")
@@ -157,3 +167,22 @@ buscadorTarea.addEventListener("input", (e)=>{
         }
     }
 })
+
+function actualizarRacha(){
+    let contador = parseInt(localStorage.getItem("racha")) || 0
+    let fechaHoy = Math.floor(Date.now() / (1000 * 60 * 60 * 24))
+    let fechaGuardada = localStorage.getItem("fecha")
+    
+    if(fechaHoy === parseInt(fechaGuardada)){
+        //No se hace nada, ya se ha sumado hoy la racha y 
+        // asi evitamos reinicio de contador
+    } else if (fechaHoy === parseInt(fechaGuardada) + 1){
+        contador = contador + 1
+    } else {
+        contador = 0
+    }
+    localStorage.setItem("racha", contador)
+    localStorage.setItem("fecha", fechaHoy)
+
+    return contador
+}
