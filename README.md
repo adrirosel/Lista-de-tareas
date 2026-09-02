@@ -35,11 +35,7 @@ Actualmente, el proyecto se encuentra en su fase MVP (Producto Mínimo Viable). 
 *   **Interactividad del Modo Oscuro:** Boton que cambia la iluminacion de la interfaz en funcion de si el usuario quiere usar la aplicacion en modo claro u oscuro
 *   **Persistencia de Datos:** Integración con `localStorage` para evitar que las tareas se borren al recargar la página.
 *   **Buscador y Filtros:** Barra de búsqueda funcional para navegar entre las tareas acumuladas.
-
-### ⏳ Pendiente de Implementación
-
-*   **Sistema de Gamificación y XP:** Implementación de las métricas y suma de puntos al completar tareas.
-*   **Desglose de Subtareas y Alertas Visuales:** Para fechas límite próximas.
+*   **Sistema de Racha Diaria:** Implementación de una racha diaria que se incrementa cada dia si se ha agregado o completado una tarea
 
 ---
 

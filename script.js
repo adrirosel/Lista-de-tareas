@@ -179,7 +179,7 @@ function actualizarRacha(){
     } else if (fechaHoy === parseInt(fechaGuardada) + 1){
         contador = contador + 1
     } else {
-        contador = 0
+        contador = 1
     }
     localStorage.setItem("racha", contador)
     localStorage.setItem("fecha", fechaHoy)
